@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:52:10 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/08/13 17:21:40 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/08/13 20:26:30 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 
 void converter(char **av, int x)
 {
@@ -36,8 +35,8 @@ void converter(char **av, int x)
             kill(atoi(av[1]), SIGUSR2);
             y = y/2;
         }
-        usleep(100);
         counter++;
+        usleep(1000);
     }
 }
 
