@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:41:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/08/13 20:19:09 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/08/14 16:56:28 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void siggs(int sig)
     else if (sig == SIGUSR2)
         bin[counter] = 0;
     counter++;
-    //printf("the value of bin is: %ls\n", bin);
+    //printf("the value of bin is: %d\n", bin[counter]);
     //printf("the value of counter is: %d\n", counter);
     if (counter == 7)
     {
@@ -39,6 +39,7 @@ void siggs(int sig)
         {
             sum = (sum * 2) + bin[x];
             //printf("the value of sum in the loop is: %d\n", sum);
+            //printf("the value of bin in the loop is: %d\n", bin[x]);
             x++;
         }
         counter = 0;
