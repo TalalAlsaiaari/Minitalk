@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talal_alsaiaary@yahoo.comr>      +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 01:32:40 by talsaiaa          #+#    #+#             */
-/*   Updated: 2021/11/02 23:38:10 by talsaiaa         ###   ########.AD       */
+/*   Updated: 2022/08/16 00:43:17 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_printf_x(unsigned int n);
 int		ft_printf_ux(unsigned int n);
 int		ft_printf_p(unsigned long n);
 int		ft_printf(const char *take_your_pick, ...);
+int     ft_atoi(char *str);
 
 #endif

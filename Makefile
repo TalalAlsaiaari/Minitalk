@@ -6,63 +6,71 @@
 #    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/16 03:08:10 by talsaiaa          #+#    #+#              #
-#    Updated: 2022/08/15 22:38:19 by talsaiaa         ###   ########.fr        #
+#    Updated: 2022/08/16 18:57:56 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Binary Name:
-NAME	=
-CLIENT	=	client
-SERVER	=	server
+# ------------------------------ Sources ------------------------------
 
-#ft_printf Variables:
-LIBFTPRINTF	=	ft_printf/libftprintf.a
-LIBFTPRINTF_DIR	=	ft_printf
+# Files
+SERVER		=	ft_server/ft_server.c
 
-#minitalk variables
-SRC_C	=	client.c
-SRC_S	=	server.c
-OBJ_S	=	server.o
-OBJ_C	=	client.o
-INC		=	minitalk.h
+CLIENT		=	ft_client/ft_client.c
 
-#Compiling Variables:
-CC			=	gcc
-CFLAG		=	-Wall -Wextra -Werror
-RM			=	rm -rf
+FT_PRINTF	=	cd ft_printf && make
 
-#Colors:
-GREEN		=	\e[38;5;118m
-YELLOW		=	\e[38;5;226m
-RESET		=	\e[0m
-_SUCCESS	=	[$(GREEN)SUCCESS$(RESET)]
-_INFO		=	[$(YELLOW)INFO$(RESET)]
+LIB			=	ft_printf/libftprintf.a
 
-all: $(LIBFTPRINTF) $(CLIENT) $(SERVER)
+# Sources and objects
+SERVER_SRC	=	$(SERVER)
 
-$(SERVER): $(OBJ_S) $(INC)
-	@ $(CC) $(CFLAGS) $(LIBFTPRINTF) -o $@ $(OBJ_S)
-	@printf "$(_SUCCESS) server ready.\n"
+SERVER_OBJS	=	$(SERVER_SRC:.c=.o)
 
-$(CLIENT): $(OBJ_C) $(INC)
-	@ $(CC) $(CFLAGS) $(LIBFTPRINTF) -o $@ $(OBJ_C)
-	@printf "$(_SUCCESS) client ready.\n"
+CLIENT_SRC	=	$(CLIENT)
 
-%.o: %.c
-	@ $(CC) $(CFLAGS) -c $< -o $@
+CLIENT_OBJS	=	$(CLIENT_SRC:.c=.o)
 
-$(LIBFTPRINTF):
-	@ $(MAKE) -C $(LIBFTPRINTF_DIR)
+OBJS		=	$(CLIENT_OBJS) \
+				$(SERVER_OBJS)
+
+# ------------------------------ Constant strings ------------------------------
+
+GCC			=	gcc
+
+FLAGS		=	-Wall -Wextra -Werror
+
+INCLUDE		=	-I include
+
+SERVER_NAME	=	server
+
+CLIENT_NAME	=	client
+
+NAME		=	server
+
+# ------------------------------ Rules ------------------------------
+
+all: $(NAME)
+
+$(NAME): comp_start ft_server ft_client
+
+comp_start:
+	@$(FT_PRINTF)
+
+ft_server: $(SERVER_OBJS)
+	@$(GCC) $(FLAGS) $(SERVER_OBJS) $(LIB) -o $(SERVER_NAME)
+
+ft_client: $(CLIENT_OBJS)
+	@$(GCC) $(FLAGS) $(CLIENT_OBJS) $(LIB) -o $(CLIENT_NAME)
 
 clean:
-	@ $(MAKE) clean -C $(LIBFTPRINTF_DIR)
-	@ $(RM) $(OBJ_C) $(OBJ_S)
-	@printf "$(_INFO) object files removed.\n"
+	@rm -rf $(OBJS)
+	@cd ft_printf && make clean
 
 fclean: clean
-	@ $(MAKE) fclean -C $(LIBFTPRINTF_DIR)
-	@ $(RM) $(CLIENT) $(SERVER)
-	@printf "$(_INFO) client removed.\n"
-	@printf "$(_INFO) server removed.\n"
+	@rm -rf $(SERVER_NAME) $(CLIENT_NAME)
+	@cd ft_printf && make fclean
 
-re: fclean all
+.c.o:
+	@${GCC} ${FLAGS} $(INCLUDE) -c $< -o ${<:.c=.o}
+
+re:	fclean all

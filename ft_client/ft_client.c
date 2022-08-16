@@ -1,7 +1,4 @@
-#include <unistd.h>
-#include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "../include/minitalk.h"
 
 void converter(char **av, int x)
 {
@@ -14,17 +11,17 @@ void converter(char **av, int x)
     {
         if(av[2][x] >= y)
         {
-            kill(atoi(av[1]), SIGUSR1);
+            kill(ft_atoi(av[1]), SIGUSR1);
             av[2][x] = av[2][x] - y;
             y = y/2;
         }
         else
         {
-            kill(atoi(av[1]), SIGUSR2);
+            kill(ft_atoi(av[1]), SIGUSR2);
             y = y/2;
         }
         counter++;
-        usleep(10000);
+        usleep(100);
     }
 }
 
@@ -34,7 +31,7 @@ int main(int ac, char **av)
     
     x = 0;
     if (ac != 3)
-        printf("Number of arguments is incorrect!\n");
+        ft_printf("Number of arguments is incorrect!\n");
 
     else
     {

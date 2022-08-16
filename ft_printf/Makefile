@@ -6,11 +6,11 @@
 #    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 00:42:19 by talsaiaa          #+#    #+#              #
-#    Updated: 2022/08/15 22:35:59 by talsaiaa         ###   ########.fr        #
+#    Updated: 2022/08/16 18:36:34 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a	
+NAME = libftprintf.a
 
 SRCS = ft_printf_d.c ft_printf_s.c ft_printf_ux.c ft_printf_p.c ft_printf_u.c ft_printf.c ft_printf_c.c ft_printf_x.c ft_putchar.c ft_atoi.c
 

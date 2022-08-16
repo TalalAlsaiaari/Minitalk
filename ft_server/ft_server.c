@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_server.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 16:41:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/08/15 22:21:25 by talsaiaa         ###   ########.fr       */
+/*   Created: 2022/08/16 18:40:07 by talsaiaa          #+#    #+#             */
+/*   Updated: 2022/08/16 19:09:05 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <sys/types.h>
-#include <stdio.h>
-#include <signal.h>
-#include <string.h>
+#include "../include/minitalk.h"
 
 int counter = 0;
 
@@ -31,19 +27,14 @@ void siggs(int sig)
     else if (sig == SIGUSR2)
         bin[counter] = 0;
     counter++;
-    //printf("the value of bin is: %d\n", bin[counter]);
-    //printf("the value of counter is: %d\n", counter);
     if (counter == 7)
     {
         while (x < counter)
         {
             sum = (sum * 2) + bin[x];
-            //printf("the value of sum in the loop is: %d\n", sum);
-            //printf("the value of bin in the loop is: %d\n", bin[x]);
             x++;
         }
         counter = 0;
-        //printf("the value of sum is: %d\n", sum);
         write(1, &sum, 1);
     }
 }
@@ -54,7 +45,7 @@ int main ()
     sa.sa_handler = &siggs;
     sigaction(SIGUSR1, &sa, NULL);
     sigaction(SIGUSR2, &sa, NULL);
-    printf("PID: %d\n", getpid());
+    ft_printf("PID: %d\n", getpid());
     while (1)
         pause();
 }
