@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 22:39:02 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/08/16 19:06:58 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/08/16 19:53:55 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,5 @@
 # include <signal.h>
 # include <stdlib.h>
 # include "../ft_printf/ft_printf.h"
-
-//# define WAIT_TIME 100
 
 #endif

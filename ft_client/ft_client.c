@@ -32,7 +32,8 @@ int main(int ac, char **av)
     x = 0;
     if (ac != 3)
         ft_printf("Number of arguments is incorrect!\n");
-
+    if (ft_atoi(av[1]) <= 0)
+        ft_printf("Invalid PID!\n");
     else
     {
         while (av[2][x])
