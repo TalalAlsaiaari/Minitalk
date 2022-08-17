@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 01:32:40 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/08/16 00:43:17 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/08/18 00:26:12 by talsaiaa         ###   ########.AD       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int		ft_printf_x(unsigned int n);
 int		ft_printf_ux(unsigned int n);
 int		ft_printf_p(unsigned long n);
 int		ft_printf(const char *take_your_pick, ...);
-int     ft_atoi(char *str);
+int		ft_atoi(char *str);
 
 #endif
