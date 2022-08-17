@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+         #
+#    By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/16 03:08:10 by talsaiaa          #+#    #+#              #
-#    Updated: 2022/08/16 22:38:10 by talsaiaa         ###   ########.fr        #
+#    Updated: 2022/08/18 01:27:05 by talsaiaa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,25 +55,25 @@ $(NAME): comp_start ft_server ft_client
 
 comp_start:
 	@ $(FT_PRINTF)
-	$(info Utilities are ready to be used)
+	@ echo "Utilities are ready to be used"
 
 ft_server: $(SERVER_OBJS)
 	@ $(GCC) $(FLAGS) $(SERVER_OBJS) $(LIB) -o $(SERVER_NAME)
-	$(info server is ready)
+	@ echo "Server is ready"
 
 ft_client: $(CLIENT_OBJS)
 	@ $(GCC) $(FLAGS) $(CLIENT_OBJS) $(LIB) -o $(CLIENT_NAME)
-	$(info client is ready)
+	@ echo "Client is ready"
 
 clean:
 	@ rm -rf $(OBJS)
 	@ cd ft_printf && make clean
-	$(info object files are now removed)
+	@ echo "Object files are now removed"
 
 fclean: clean
 	@ rm -rf $(SERVER_NAME) $(CLIENT_NAME)
 	@ cd ft_printf && make fclean
-	$(info object files and executables are now removed)
+	@ echo "Object files and executables are now removed"
 
 .c.o:
 	@${GCC} ${FLAGS} $(INCLUDE) -c $< -o ${<:.c=.o}
