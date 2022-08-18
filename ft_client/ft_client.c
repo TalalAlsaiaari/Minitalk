@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 00:15:20 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/08/18 01:10:09 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:58:37 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	converter(char **av, int x)
 			y = y / 2;
 		}
 		counter++;
-		usleep(30);
+		usleep(80);
 	}
 }
 
